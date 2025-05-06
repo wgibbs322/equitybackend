@@ -8,7 +8,7 @@ const generateReceipt = (transfer, softcodeMessage) => {
     doc.pipe(fs.createWriteStream(receiptPath));  // Pipe the PDF output to the file system
 
     doc.fontSize(16).text('Transfer Receipt', { align: 'center' });
-    doc.text(`\nAmount: RM${transfer.amount}`, { align: 'left' });
+    doc.text(`\nAmount: USD${transfer.amount}`, { align: 'left' });
     doc.text(`Recipient: ${transfer.recipientName}`, { align: 'left' });
     doc.text(`Account Number: ${transfer.recipientAccount}`, { align: 'left' });
     doc.text(`Routing Number: ${transfer.routingNumber}`, { align: 'left' });
