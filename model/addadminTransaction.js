@@ -8,4 +8,6 @@ const transactionSchema = new mongoose.Schema({
   balanceUpdate: Number
 });
 
-export default mongoose.model('Transaction', transactionSchema);
+// ✅ Prevent model overwrite issue
+const Transaction = mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
+export default Transaction;
