@@ -1,19 +1,19 @@
+// routes/adminRoutes.js
 import express from 'express';
 import {
-    addadmingetTransactions,
-    addadminaddTransaction,
-    addadmindeleteTransaction,
-    addadmingetBalance,
-    addadminupdateAvailableBalance
-} from '../Controller/addadmintransactionController.js';
+  addadmintransaction,
+  addadmindeleteTransaction,
+  addadminupdateBalance,
+  addadmingetBalance,
+  addadmingetAllTransactions
+} from '../Controller/addadmintransactionController';
 
 const router = express.Router();
 
-router.get('/addadmingettransaction', addadmingetTransactions);
-router.post('/addadminaddtransaction', addadminaddTransaction);
-router.delete('/:id', addadmindeleteTransaction);
-
-router.get('/addadminbalance', addadmingetBalance);
-router.put('/addadminavailablebalance', addadminupdateAvailableBalance);
+router.post('/addadmintransaction', addadmintransaction);
+router.delete('/addadmindeleteTransaction/:id', addadmindeleteTransaction);
+router.put('/addadminupdateBalance', addadminupdateBalance);
+router.get('/addadmingetBalance', addadmingetBalance);
+router.get('/addadmingetAllTransactions', addadmingetAllTransactions);
 
 export default router;

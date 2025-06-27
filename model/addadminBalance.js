@@ -1,8 +1,8 @@
+// models/Balance.js
 import mongoose from 'mongoose';
 
 const balanceSchema = new mongoose.Schema({
-  available: { type: Number, default: 0 }
+  amount: { type: Number, required: true },
 });
 
-const Balance = mongoose.models.Balance || mongoose.model('Balance', balanceSchema);
-export default Balance;
+export default mongoose.model('Balance', balanceSchema);

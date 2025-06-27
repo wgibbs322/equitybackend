@@ -39,7 +39,7 @@ app.use('/api/softcode', softcodeRoutes);
 
 
 // Routes
-app.use('/api/transactions', addadmintransactionRoutes);
+app.use('/api/admin', addadmintransactionRoutes);
 
 
 // Error Handling Middleware

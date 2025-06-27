@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
 
 const transactionSchema = new mongoose.Schema({
-  description: String,
-  amount: Number,
-  status: { type: mongoose.Schema.Types.Mixed, default: 'Pending' },
+  description: { type: String, required: true },
+  amount: { type: Number, required: true },
+  status: { type: String, enum: ['Pending', 'Completed', 'Applied'], default: 'Pending' },
+  balanceAfter: { type: Number },
   createdAt: { type: Date, default: Date.now },
-  balanceUpdate: Number
 });
 
-// ✅ Prevent model overwrite issue
-const Transaction = mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
-export default Transaction;
+export default mongoose.model('Transaction', transactionSchema);
