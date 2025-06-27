@@ -1,11 +1,14 @@
+// model/addadminTransaction.js
+
 import mongoose from 'mongoose';
 
 const transactionSchema = new mongoose.Schema({
   description: { type: String, required: true },
   amount: { type: Number, required: true },
-  status: { type: String, enum: ['Pending', 'Completed', 'Applied'], default: 'Pending' },
-  balanceAfter: { type: Number },
-  createdAt: { type: Date, default: Date.now },
+  balanceAfter: { type: Number, required: true },
+  status: { type: String, default: 'Pending' },
+  createdAt: { type: Date, default: Date.now }
 });
 
-export default mongoose.model('Transaction', transactionSchema);
+// ✅ Check if already compiled
+export default mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
