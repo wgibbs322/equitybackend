@@ -6,7 +6,7 @@ import {
   addadminupdateBalance,
   addadmingetBalance,
   addadmingetAllTransactions
-} from '../Controller/addadmintransactionController';
+} from '../Controller/addadmintransactionController.js';
 
 const router = express.Router();
 
